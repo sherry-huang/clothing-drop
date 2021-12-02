@@ -8,7 +8,7 @@ export const fetchParkingData = () => {
             return {
                 lng: item['座標-經度'],
                 lat: item['座標-緯度'],
-                type: item['型式'], // 立體 | 平面
+                type: item['型式'],
                 title: item['場名'],
                 address: item['位置'],
                 district: item['行政區'],
