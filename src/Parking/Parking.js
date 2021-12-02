@@ -11,8 +11,8 @@ const containerStyle = {
 };
 
 const center = {
-    lat: 22.5947894,
-    lng: 120.306911
+    lat: 22.6027253,
+    lng: 120.305000
 };
 
 const getPixelPositionOffset = (width, height) => ({
@@ -43,15 +43,6 @@ class Parking extends Component {
             })
         }
         fetchingData();
-    }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     if(!isEqual(prevState, this.state)) {
-    //         this.formRef.current.setFieldsValue(this.state);
-    //     }
-    // }
-
-    componentWillUnmount() {
     }
 
     onChange = (value, key) => {
@@ -86,7 +77,7 @@ class Parking extends Component {
                             <GoogleMap
                                 mapContainerStyle={containerStyle}
                                 center={center}
-                                zoom={17}
+                                zoom={15}
                                 clickableIcons={false}
                                 isMarkerShown
                             >
