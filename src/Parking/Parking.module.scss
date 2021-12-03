@@ -1,11 +1,26 @@
+$width-1: 650px; // 768 up
+$height-1: 500px; // 768 up
+$width-2: 250px; // 768 up 320 up
+$height-2: 150px; // 768 down 320 up
+
 .parking-space {
     background-color: #F8F9FA;
     padding: 40px 100px;
+
+    @media (max-width: 1200px) {
+        // < 1200px
+        padding: 60px 100px;
+    }
 
     .parking-header {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (max-width: 768px) and (min-width: 319px){
+            // < 768 > 320
+            align-items: flex-start;
+        }
 
         .parking-title {
             font-size: 64px;
@@ -13,6 +28,11 @@
             color: #879F36;
             margin: 0 0 0 5px;
             letter-spacing: 2px;
+
+            @media (max-width: 768px) and (min-width: 319px){
+                // < 768 > 320
+                font-size: 48px;
+            }
     
             &::after {
                 content: " Space";
@@ -27,38 +47,52 @@
 
     .parking-content {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         padding: 50px 0 0 0;
 
         .parking-map {
-            flex: 2;
+            // flex: 2;
             display: flex;
             justify-content: center;
+            margin: 0 0 50px 0;
 
-            .label-box {
-                background: #9f4eb8;
-                padding: 2px;
-                border-radius: 50px;
-                box-shadow: -2px 2px 5px #2f2c49;
-                color: #fff;
+            .google-map {
+                width: $width-1;
+                height: $height-1;
 
-                .label-content {
-                    display: flex;
-                    align-items: center;
+                @media (max-width: 768px) and (min-width: 319px){
+                    // < 768 > 320
+                    width: $width-2;
+                    height: $height-2;
+                }
+
+                .label-box {
+                    background: #9f4eb8;
                     padding: 2px;
-
-                    .box-title {
-                        display: none;
-                        margin-left: 5px;
-                        font-size: 12px;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-                        padding: 2px 5px;
-                        margin-left: 2px;
-
+                    border-radius: 50px;
+                    box-shadow: -2px 2px 5px #2f2c49;
+                    color: #fff;
+    
+                    .label-content {
+                        display: flex;
+                        align-items: center;
+                        padding: 2px;
+    
                         .box-title {
-                            display: block;
+                            display: none;
+                            margin-left: 5px;
+                            font-size: 12px;
+                        }
+    
+                        &:hover {
+                            cursor: pointer;
+                            padding: 2px 5px;
+                            margin-left: 2px;
+    
+                            .box-title {
+                                display: block;
+                            }
                         }
                     }
                 }
@@ -66,63 +100,131 @@
         }
         
         .parking-info {
-            margin: 0 0 0 100px;
-            flex: 1;
             text-align: left;
+            width: auto;
             border-bottom: 3px solid #374D65;
             border-top: 3px solid #374D65;
             position: relative;
+            margin-bottom: 50px;
+            word-wrap: break-word;
 
-            .parking-detail {
+            @media (min-width: 1200px) {
+                // > 1200px
+                margin-left: 100px;
+                flex-basis: 350px;
+            }
 
-                .parking-info-header-box {
-                    margin: 30px 0;
-                    text-align: center;
+            .parking-info-box {
+                margin: 30px 0;
 
-                    .parking-info-header {
+                @media (max-width: 1200px) {
+                    // < 1200px
+                    width: $width-1;
+                }
+
+                @media (max-width: 768px) and (min-width: 319px){
+                    // < 768 > 320
+                    width: $width-2;
+                }
+
+                .parking-detail {
+
+                    @media (max-width: 1200px) and (min-width: 769px){
+                        // < 1200px
+                        margin: 0 100px;
+                    }
+
+                    .parking-info-header-box {
+                        margin: 30px 0;
+                        text-align: center;
+                        width: 100%;
+
+                        @media (max-width: 768px) and (min-width: 319px){
+                            // < 768 > 320
+                            margin: 20px 0;
+                        }
+    
+                        .parking-info-header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            letter-spacing: 2px;
+    
+                            .icon-map {
+                                color: #787876;
+                                font-size: 36px; // 40
+
+                                @media (max-width: 768px) and (min-width: 319px){
+                                    // < 768 > 320
+                                    font-size: 24px;
+                                }
+                            }
+    
+                            .parking-info-title {
+                                font-size: 36px;
+                                margin: 0 0 0 10px;
+
+                                @media (max-width: 768px) and (min-width: 319px){
+                                    // < 768 > 320
+                                    font-size: 24px;
+                                }
+                            }
+                        }
+                        
+                        .parking-info-desc {
+                            font-size: 14px;
+                            margin: 10px 0 0 0;
+
+                            @media (max-width: 768px) and (min-width: 319px){
+                                // < 768 > 320
+                                font-size: 12px;
+                            }
+                        }
+                    }
+    
+                    .parking-info-content-box {
                         display: flex;
-                        align-items: center;
                         justify-content: center;
+                        font-size: 16px;
+                        margin: 0 20px;
 
-                        .icon-map {
-                            color: #787876;
-                            font-size: 40px;
-                        }
-
-                        .parking-info-title {
-                            font-size: 36px;
-                            margin: 0 0 0 10px;
+                        @media (max-width: 768px) and (min-width: 319px){
+                            // < 768 > 320
+                            font-size: 14px;
+                            margin: 0 30px;
                         }
                     }
-                    
-                    .parking-info-desc {
-                        font-size: 14px;
-                        margin: 10px 0 0 0;
+                }
+    
+                .icon-car {
+                    position: absolute;
+                    z-index: 0;
+                    right: 0;
+                    bottom: 0;
+                    font-size: 80px; //150
+                    color: #374D65;
+
+                    @media (max-width: 768px) and (min-width: 319px){
+                        // < 768 > 320
+                        font-size: 35px;
                     }
                 }
+    
+                .icon-wind {
+                    position: absolute;
+                    z-index: 0;
+                    right: 110px;
+                    bottom: 25px;
+                    font-size: 20px; //40
+                    color: #374D65;
 
-                .parking-info-content-box {
-                    padding: 0 75px;
-                    font-size: 16px;
+                    @media (max-width: 768px) and (min-width: 319px){
+                        // < 768 > 320
+                        font-size: 10px;
+                        right: 50px;
+                        bottom: 10px;
+                    }
                 }
-            }
-
-            .icon-car {
-                position: absolute;
-                z-index: 0;
-                right: 0;
-                bottom: 0;
-                font-size: 150px;
-                color: #374D65;
-            }
-
-            .icon-wind {
-                position: absolute;
-                z-index: 0;
-                right: 200px;
-                bottom: 30px;
-                font-size: 40px;
-                color: #374D65;
             }
         }
     }
