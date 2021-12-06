@@ -95,7 +95,7 @@ class Parking extends Component {
                                                 onClick={() => this.onClick(item)}
                                             >
                                                 <div className={styles['label-content']}>
-                                                    <FontAwesomeIcon icon={faParking} size="xm" color="#fff"/> 
+                                                    <FontAwesomeIcon icon={faParking} color="#fff"/> 
                                                     <div className={styles['box-title']}>{item.title}</div>
                                                 </div>
                                             </div>
