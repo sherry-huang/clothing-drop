@@ -14,3 +14,5 @@
 
 1. 可將游標移動至停車符號 P 上，可看到該停車場的名稱
 2. 再點擊停車符號 P 即可於停車場資訊部分看見該停車場的詳細資訊，包含名稱、行政區、地址、型式及收費標準
+
+![gif](https://github.com/sherry-huang/parking/blob/main/introduction.gif)
