@@ -1,15 +1,44 @@
 $width-1: 650px; // 768 up
 $height-1: 500px; // 768 up
-$width-2: 250px; // 768 up 320 up
+$width-2: 280px; // 768 up 320 up
 $height-2: 150px; // 768 down 320 up
+
+@mixin lg-screen-media() {
+    @media all and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin md-and-sm-screen-media() {
+    @media all and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin md-screen-media() {
+    @media all and (max-width: 1200px) and (min-width: 769px) {
+        @content;
+    }
+}
+
+@mixin sm-screen-media() {
+    @media all and (max-width: 768px) and (min-width: 319px) {
+        @content;
+    }
+}
 
 .parking-space {
     background-color: #F8F9FA;
     padding: 40px 100px;
 
-    @media (max-width: 1200px) {
-        // < 1200px
+    @include md-screen-media {
+        // 769 - 1200px
         padding: 60px 100px;
+    }
+
+    @include sm-screen-media {
+        // < 1200px
+        padding: 20px 50px;
     }
 
     .parking-header {
@@ -17,9 +46,19 @@ $height-2: 150px; // 768 down 320 up
         align-items: center;
         justify-content: center;
 
-        @media (max-width: 768px) and (min-width: 319px){
+        @include sm-screen-media {
             // < 768 > 320
             align-items: flex-start;
+            padding: 0 50px;
+        }
+
+        .icon-p {
+            font-size: 80px; //5x
+            color: #879F36;
+
+            @include  md-and-sm-screen-media {
+                font-size: 60px;
+            }
         }
 
         .parking-title {
@@ -29,7 +68,7 @@ $height-2: 150px; // 768 down 320 up
             margin: 0 0 0 5px;
             letter-spacing: 2px;
 
-            @media (max-width: 768px) and (min-width: 319px){
+            @include sm-screen-media {
                 // < 768 > 320
                 font-size: 48px;
             }
@@ -52,7 +91,6 @@ $height-2: 150px; // 768 down 320 up
         padding: 50px 0 0 0;
 
         .parking-map {
-            // flex: 2;
             display: flex;
             justify-content: center;
             margin: 0 0 50px 0;
@@ -61,7 +99,7 @@ $height-2: 150px; // 768 down 320 up
                 width: $width-1;
                 height: $height-1;
 
-                @media (max-width: 768px) and (min-width: 319px){
+                @include sm-screen-media {
                     // < 768 > 320
                     width: $width-2;
                     height: $height-2;
@@ -108,7 +146,7 @@ $height-2: 150px; // 768 down 320 up
             margin-bottom: 50px;
             word-wrap: break-word;
 
-            @media (min-width: 1200px) {
+            @include lg-screen-media {
                 // > 1200px
                 margin-left: 100px;
                 flex-basis: 350px;
@@ -117,19 +155,19 @@ $height-2: 150px; // 768 down 320 up
             .parking-info-box {
                 margin: 30px 0;
 
-                @media (max-width: 1200px) {
+                @include md-and-sm-screen-media {
                     // < 1200px
                     width: $width-1;
                 }
 
-                @media (max-width: 768px) and (min-width: 319px){
+                @include sm-screen-media {
                     // < 768 > 320
                     width: $width-2;
                 }
 
                 .parking-detail {
 
-                    @media (max-width: 1200px) and (min-width: 769px){
+                    @include md-screen-media {
                         // < 1200px
                         margin: 0 100px;
                     }
@@ -139,7 +177,7 @@ $height-2: 150px; // 768 down 320 up
                         text-align: center;
                         width: 100%;
 
-                        @media (max-width: 768px) and (min-width: 319px){
+                        @include sm-screen-media {
                             // < 768 > 320
                             margin: 20px 0;
                         }
@@ -154,7 +192,7 @@ $height-2: 150px; // 768 down 320 up
                                 color: #787876;
                                 font-size: 36px; // 40
 
-                                @media (max-width: 768px) and (min-width: 319px){
+                                @include sm-screen-media {
                                     // < 768 > 320
                                     font-size: 24px;
                                 }
@@ -164,7 +202,7 @@ $height-2: 150px; // 768 down 320 up
                                 font-size: 36px;
                                 margin: 0 0 0 10px;
 
-                                @media (max-width: 768px) and (min-width: 319px){
+                                @include sm-screen-media {
                                     // < 768 > 320
                                     font-size: 24px;
                                 }
@@ -175,7 +213,7 @@ $height-2: 150px; // 768 down 320 up
                             font-size: 14px;
                             margin: 10px 0 0 0;
 
-                            @media (max-width: 768px) and (min-width: 319px){
+                            @include sm-screen-media {
                                 // < 768 > 320
                                 font-size: 12px;
                             }
@@ -188,7 +226,7 @@ $height-2: 150px; // 768 down 320 up
                         font-size: 16px;
                         margin: 0 20px;
 
-                        @media (max-width: 768px) and (min-width: 319px){
+                        @include sm-screen-media {
                             // < 768 > 320
                             font-size: 14px;
                             margin: 0 30px;
@@ -204,7 +242,7 @@ $height-2: 150px; // 768 down 320 up
                     font-size: 80px; //150
                     color: #374D65;
 
-                    @media (max-width: 768px) and (min-width: 319px){
+                    @include sm-screen-media {
                         // < 768 > 320
                         font-size: 35px;
                     }
@@ -218,7 +256,7 @@ $height-2: 150px; // 768 down 320 up
                     font-size: 20px; //40
                     color: #374D65;
 
-                    @media (max-width: 768px) and (min-width: 319px){
+                    @include sm-screen-media {
                         // < 768 > 320
                         font-size: 10px;
                         right: 50px;

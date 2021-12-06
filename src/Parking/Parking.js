@@ -67,7 +67,7 @@ class Parking extends Component {
         return (
             <div className={styles['parking-space']}>
                 <div className={styles['parking-header']}>
-                    <FontAwesomeIcon icon={faParking} size="5x" color="#879F36"/>
+                    <FontAwesomeIcon icon={faParking} className={styles['icon-p']}/>
                     <div className={styles['parking-title']}>arking </div>
                 </div>
                 <div className={styles['parking-content']}>
