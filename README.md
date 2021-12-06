@@ -1,3 +1,4 @@
+![image](https://github.com/sherry-huang/parking/blob/main/banner.png)
 # Parking Space
 
 每次去高雄玩都不知道哪裡有停車場，只好自己來做一個！
