@@ -1,0 +1,269 @@
+$width-1: 650px; // 768 up
+$height-1: 500px; // 768 up
+$width-2: 280px; // 768 up 320 up
+$height-2: 150px; // 768 down 320 up
+
+@mixin lg-screen-media() {
+    @media all and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin md-and-sm-screen-media() {
+    @media all and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin md-screen-media() {
+    @media all and (max-width: 1200px) and (min-width: 769px) {
+        @content;
+    }
+}
+
+@mixin sm-screen-media() {
+    @media all and (max-width: 768px) and (min-width: 319px) {
+        @content;
+    }
+}
+
+.parking-space {
+    background-color: #F8F9FA;
+    padding: 40px 100px;
+
+    @include md-screen-media {
+        // 769 - 1200px
+        padding: 60px 100px;
+    }
+
+    @include sm-screen-media {
+        // < 1200px
+        padding: 20px 50px;
+    }
+
+    .parking-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include sm-screen-media {
+            // < 768 > 320
+            align-items: flex-start;
+            padding: 0 50px;
+        }
+
+        .icon-p {
+            font-size: 80px; //5x
+            color: #879F36;
+
+            @include  md-and-sm-screen-media {
+                font-size: 60px;
+            }
+        }
+
+        .parking-title {
+            font-size: 64px;
+            font-weight: 800;
+            color: #879F36;
+            margin: 0 0 0 5px;
+            letter-spacing: 2px;
+
+            @include sm-screen-media {
+                // < 768 > 320
+                font-size: 48px;
+            }
+    
+            &::after {
+                content: " Space";
+                color: #EDB53A;
+            }
+        }
+
+        .parking-title-desc {
+            color: #6D6263;
+        }
+    }
+
+    .parking-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 50px 0 0 0;
+
+        .parking-map {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 50px 0;
+
+            .google-map {
+                width: $width-1;
+                height: $height-1;
+
+                @include sm-screen-media {
+                    // < 768 > 320
+                    width: $width-2;
+                    height: $height-2;
+                }
+
+                .label-box {
+                    background: #9f4eb8;
+                    padding: 2px;
+                    border-radius: 50px;
+                    box-shadow: -2px 2px 5px #2f2c49;
+                    color: #fff;
+    
+                    .label-content {
+                        display: flex;
+                        align-items: center;
+                        padding: 2px;
+    
+                        .box-title {
+                            display: none;
+                            margin-left: 5px;
+                            font-size: 12px;
+                        }
+    
+                        &:hover {
+                            cursor: pointer;
+                            padding: 2px 5px;
+                            margin-left: 2px;
+    
+                            .box-title {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        .parking-info {
+            text-align: left;
+            width: auto;
+            border-bottom: 3px solid #374D65;
+            border-top: 3px solid #374D65;
+            position: relative;
+            margin-bottom: 50px;
+            word-wrap: break-word;
+
+            @include lg-screen-media {
+                // > 1200px
+                margin-left: 100px;
+                flex-basis: 350px;
+            }
+
+            .parking-info-box {
+                margin: 30px 0;
+
+                @include md-and-sm-screen-media {
+                    // < 1200px
+                    width: $width-1;
+                }
+
+                @include sm-screen-media {
+                    // < 768 > 320
+                    width: $width-2;
+                }
+
+                .parking-detail {
+
+                    @include md-screen-media {
+                        // < 1200px
+                        margin: 0 100px;
+                    }
+
+                    .parking-info-header-box {
+                        margin: 30px 0;
+                        text-align: center;
+                        width: 100%;
+
+                        @include sm-screen-media {
+                            // < 768 > 320
+                            margin: 20px 0;
+                        }
+    
+                        .parking-info-header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            letter-spacing: 2px;
+    
+                            .icon-map {
+                                color: #787876;
+                                font-size: 36px; // 40
+
+                                @include sm-screen-media {
+                                    // < 768 > 320
+                                    font-size: 24px;
+                                }
+                            }
+    
+                            .parking-info-title {
+                                font-size: 36px;
+                                margin: 0 0 0 10px;
+
+                                @include sm-screen-media {
+                                    // < 768 > 320
+                                    font-size: 24px;
+                                }
+                            }
+                        }
+                        
+                        .parking-info-desc {
+                            font-size: 14px;
+                            margin: 10px 0 0 0;
+
+                            @include sm-screen-media {
+                                // < 768 > 320
+                                font-size: 12px;
+                            }
+                        }
+                    }
+    
+                    .parking-info-content-box {
+                        display: flex;
+                        justify-content: center;
+                        font-size: 16px;
+                        margin: 0 20px;
+
+                        @include sm-screen-media {
+                            // < 768 > 320
+                            font-size: 14px;
+                            margin: 0 30px;
+                        }
+                    }
+                }
+    
+                .icon-car {
+                    position: absolute;
+                    z-index: 0;
+                    right: 0;
+                    bottom: 0;
+                    font-size: 80px; //150
+                    color: #374D65;
+
+                    @include sm-screen-media {
+                        // < 768 > 320
+                        font-size: 35px;
+                    }
+                }
+    
+                .icon-wind {
+                    position: absolute;
+                    z-index: 0;
+                    right: 110px;
+                    bottom: 25px;
+                    font-size: 20px; //40
+                    color: #374D65;
+
+                    @include sm-screen-media {
+                        // < 768 > 320
+                        font-size: 10px;
+                        right: 50px;
+                        bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
