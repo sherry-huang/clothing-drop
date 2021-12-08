@@ -16,4 +16,6 @@ Every time I go to Kaohsiung, I don’t know where is a parking space, so I have
 1. You can move the cursor to the parking symbol P, you can see the name of the parking space.
 2. Click the parking symbol P again to see the detailed information of the parking space in the parking space information section, including name, administrative area, address, type and charging standard.
 
+## Example
+
 ![gif](https://github.com/sherry-huang/parking/blob/main/introduction.gif)
